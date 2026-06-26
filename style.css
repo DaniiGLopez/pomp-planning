@@ -8,6 +8,32 @@ Fonts: Batman Nerd (headings) / Batman Soft (body)
 ========================================================== */
 
 /* ----------------------------------------------------------
+Padding/ Width Restrictions after Carrd Migration 
+---------------------------------------------------------- */
+html {
+  background: #f7f3ec;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: inherit;
+  background: #f7f3ec;
+}
+
+.pomp-intro,
+#pomp-basic-form,
+.pomp-confirm {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#pomp-basic-form {
+  padding: 0;
+}
+
+/* ----------------------------------------------------------
 BATMAN FONTS
 ---------------------------------------------------------- */
 
