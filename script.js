@@ -370,7 +370,7 @@ External JS File
       $("basic-confirmation")?.style.setProperty("display", "block");
     } catch (err) {
       console.error("POMP planning submit failed:", err);
-      alert("Something went wrong while submitting the form. Please try again.");
+     alert(`Something went wrong: ${err.message}`);
       if (submitBtn) submitBtn.disabled = false;
     }
   }
