@@ -393,9 +393,17 @@ async function handleSubmit(e, form) {
     bindSingleSelectGroups();
     bindLogicListeners();
 
-    form.addEventListener("submit", (e) => handleSubmit(e, form));
+   form.addEventListener("submit", (e) => handleSubmit(e, form));
 
-    runLogic();
+const submitButton = $("BasicSubmit");
+
+if (submitButton) {
+  submitButton.addEventListener("click", (e) =>
+    handleSubmit(e, form)
+  );
+}
+
+runLogic();
   }
 
   if (document.readyState === "loading") {
