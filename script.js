@@ -364,8 +364,9 @@ async function handleSubmit(e, form) {
     });
 
     if (!response.ok) {
-      throw new Error(`Webhook failed with status ${response.status}`);
-    }
+  const errorText = await response.text();
+  throw new Error(`Webhook failed with status ${response.status}: ${errorText}`);
+}
 
     form.style.display = "none";
     $("basic-confirmation")?.style.setProperty("display", "block");
