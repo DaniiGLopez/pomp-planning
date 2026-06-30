@@ -347,9 +347,7 @@ SUBMIT
 
 async function handleSubmit(e, form) {
   e.preventDefault();
-
-  console.log("HANDLE SUBMIT FIRED");
-
+  
   const submitBtn = $("BasicSubmit");
 
   if (submitBtn) submitBtn.disabled = true;
