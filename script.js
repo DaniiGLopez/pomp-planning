@@ -342,38 +342,39 @@ External JS File
   }
 
   /* ----------------------------------------------------------
-  SUBMIT
-  ---------------------------------------------------------- */
+SUBMIT
+---------------------------------------------------------- */
 
-  async function handleSubmit(e, form) {
-    e.preventDefault();
+async function handleSubmit(e, form) {
+  e.preventDefault();
 
-    const submitBtn =
-      form.querySelector('button[type="submit"], input[type="submit"]');
+  console.log("HANDLE SUBMIT FIRED");
 
-    if (submitBtn) submitBtn.disabled = true;
+  const submitBtn = $("BasicSubmit");
 
-    try {
-      const snapshot = buildSnapshot();
+  if (submitBtn) submitBtn.disabled = true;
 
-      const response = await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ snapshot })
-      });
+  try {
+    const snapshot = buildSnapshot();
 
-      if (!response.ok) {
-        throw new Error(`Webhook failed with status ${response.status}`);
-      }
+    const response = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ snapshot })
+    });
 
-      form.style.display = "none";
-      $("basic-confirmation")?.style.setProperty("display", "block");
-    } catch (err) {
-      console.error("POMP planning submit failed:", err);
-     alert(`Something went wrong: ${err.message}`);
-      if (submitBtn) submitBtn.disabled = false;
+    if (!response.ok) {
+      throw new Error(`Webhook failed with status ${response.status}`);
     }
+
+    form.style.display = "none";
+    $("basic-confirmation")?.style.setProperty("display", "block");
+  } catch (err) {
+    console.error("POMP planning submit failed:", err);
+    alert(`Something went wrong: ${err.message}`);
+    if (submitBtn) submitBtn.disabled = false;
   }
+}
 
   /* ----------------------------------------------------------
   INIT
