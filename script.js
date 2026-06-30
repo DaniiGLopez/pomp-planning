@@ -11,7 +11,7 @@ External JS File
   CONFIG
   ---------------------------------------------------------- */
 
-  const WEBHOOK_URL = "https://hook.us2.make.com/yje83hyt1q03zek4mwlz1fe9l3ghl4ri";
+  const WEBHOOK_URL = "https://planning.yourpomp.com/api/planning-submit";
 
   /* ----------------------------------------------------------
   HELPERS
